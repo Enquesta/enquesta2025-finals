@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ENQUESTA</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: black;
+      color: #caa0ff;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 2rem;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease-in-out;
+      z-index: 0;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    h1.typing {
+      font-size: 5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.1em solid #caa0ff;
+      animation: typing 3s steps(8, end), blink-caret 0.75s step-end infinite;
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    h2.underline {
+      text-decoration: underline;
+    }
+
+    p, li {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    ul {
+      list-style: disc;
+      text-align: left;
+      max-width: 800px;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      background-color: black;
+      color: #caa0ff;
+      border: 2px solid #caa0ff;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #caa0ff;
+      color: black;
+    }
+
+    .meme {
+      max-width: 100%;
+      max-height: 70vh;
+      border-radius: 10px;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 8ch; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #caa0ff; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro -->
+  <div class="slide active" id="intro">
+    <h1 class="typing">ENQUESTA</h1>
+    <button onclick="nextSlide()">Start</button>
+  </div>
+
+  <!-- Rules -->
+  <div class="slide" id="slide-1">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <h2 class="underline">RULES</h2>
+    <ul>
+      <li>There will be 20 questions in the prelims.</li>
+      <li>Questions 4, 8, 12, 16, and 20 will be starred questions worth 2 points each.</li>
+      <li>All other questions are worth 1 point each.</li>
+      <li>All blanks are indicative.</li>
+      <li>Top 6 teams will qualify to the finals.</li>
+      <li>In case of a tie, the number of starred questions answered will be taken into consideration.</li>
+      <li>If a tie still persists, a preliminary tie-breaker round will take place on-stage before the finals.</li>
+      <li>Only 1 team from a school can enter the finals.</li>
+    </ul>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <!-- Meme after rules -->
+  <div class="slide" id="slide-2">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <img src="https://i.imgflip.com/5w3fvz.jpg" class="meme" alt="Good Luck Meme">
+    <button onclick="nextSlide()">Start Quiz</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="slide" id="slide-3">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <h2>Question 1</h2>
+    <p>In 1977, this superstar received the title of “Superstar” through a movie of the same name. Identify him.</p>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <!-- Meme after Q1 -->
+  <div class="slide" id="slide-4">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <img src="https://i.imgflip.com/4t0m5.jpg" class="meme" alt="Meme after Q1">
+    <button onclick="nextSlide()">Show Answer</button>
+  </div>
+
+  <!-- A1 -->
+  <div class="slide" id="slide-5">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <h2>Answer 1</h2>
+    <p>Rajinikanth</p>
+    <button onclick="nextSlide()">Next Question</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="slide" id="slide-6">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <h2>Question 2</h2>
+    <p>Identify the cricketer who got out hit wicket while attempting a reverse scoop off Kagiso Rabada during IPL 2023.</p>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <!-- Meme after Q2 -->
+  <div class="slide" id="slide-7">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <img src="https://i.imgflip.com/7s5lg7.jpg" class="meme" alt="Meme after Q2">
+    <button onclick="nextSlide()">Show Answer</button>
+  </div>
+
+  <!-- A2 -->
+  <div class="slide" id="slide-8">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <h2>Answer 2</h2>
+    <p>Harry Brook</p>
+    <button onclick="nextSlide()">Next Question</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="slide" id="slide-9">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <h2>Question 3</h2>
+    <p>This sportsperson’s nickname is “The Dhing Express”. Identify her.</p>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <!-- Meme after Q3 -->
+  <div class="slide" id="slide-10">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <img src="https://i.imgflip.com/6uh4b8.jpg" class="meme" alt="Meme after Q3">
+    <button onclick="nextSlide()">Show Answer</button>
+  </div>
+
+  <!-- A3 -->
+  <div class="slide" id="slide-11">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <h2>Answer 3</h2>
+    <p>Hima Das</p>
+    <button onclick="nextSlide()">Finish</button>
+  </div>
+
+  <!-- Finish -->
+  <div class="slide" id="finish">
+    <div class="top-left"><button onclick="goToIntro()">🏠 Intro</button></div>
+    <h2>THANK YOU FOR PARTICIPATING!</h2>
+    <img src="https://i.imgflip.com/2fm6x.jpg" class="meme" alt="Funny Meme">
+    <button onclick="goToIntro()">🏠 Intro</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      if (currentSlide + 1 < slides.length) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function goToIntro() {
+      showSlide(0);
+    }
+  </script>
+</body>
+</html>
